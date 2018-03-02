@@ -34,13 +34,46 @@ class TestBSTClass(unittest.TestCase):
     """Test basic BST class functionality."""
 
     def setUp(self):
-        node3 = bst.Node(3)
-        node2 = bst.Node(2)
-        node4 = bst.Node(4)
+        self.empty_tree = bst.BST()
 
-        tree = bst.BST()
+        self.small_tree = bst.BST()
+        self.small_tree.insert(4)
 
+        self.medium_tree = bst.BST()
+        self.medium_tree.insert(4)
+        self.medium_tree.insert(3)
+        self.medium_tree.insert(5)
 
+        self.large_tree = bst.BST()
+        self.large_tree.insert(4)
+        self.large_tree.insert(5)
+        self.large_tree.insert(6)
+        self.large_tree.insert(2)
+        self.large_tree.insert(3)
+        self.large_tree.insert(0)
+        self.large_tree.insert(1)
+        self.large_tree.insert(3)
+
+    def test_search(self):
+        self.assertFalse(self.empty_tree.search(3))
+
+        self.assertFalse(self.small_tree.search(3))
+        self.assertTrue(self.small_tree.search(4))
+
+        self.assertTrue(self.medium_tree.search(5))
+        self.assertFalse(self.medium_tree.search(-5))
+
+    def test_height(self):
+        self.assertEqual(self.empty_tree.height(), 0)
+        self.assertEqual(self.small_tree.height(), 1)
+        self.assertEqual(self.medium_tree.height(), 2)
+
+        self.medium_tree.insert(2)
+        self.assertEqual(self.medium_tree.height(), 3)
+
+        self.assertEqual(self.large_tree.height(), 4)
+
+    
 
 if __name__ == '__main__':
     unittest.main()
