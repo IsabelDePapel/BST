@@ -110,3 +110,56 @@ class BST:
         right_height = self.__height_wrapper(root.right)
 
         return max([left_height, right_height]) + 1
+
+    def pre_order(self):
+        """Print out values of the tree in pre-order traversal (root,L,R)."""
+        self.__pre_order_wrapper(self._root)
+
+    def __pre_order_wrapper(self, root):
+        if root is None:
+            return
+
+        print(root.value, end=' ')
+        self.__pre_order_wrapper(root.left)
+        self.__pre_order_wrapper(root.right)
+
+    def in_order(self):
+        """Print out values of the tree in in-order traversal (L,root,R)."""
+        self.__in_order_wrapper(self._root)
+
+    def __in_order_wrapper(self, root):
+        if root is None:
+            return
+
+        self.__in_order_wrapper(root.left)
+        print(root.value, end=' ')
+        self.__in_order_wrapper(root.right)
+
+    def post_order(self):
+        """Print out values of the tree in post-order traversal (L,R,root)."""
+        self.__post_order_wrapper(self._root)
+
+    def __post_order_wrapper(self, root):
+        if root is None:
+            return
+
+        self.__post_order_wrapper(root.left)
+        self.__post_order_wrapper(root.right)
+        print(root.value, end=' ')
+
+
+tree = BST()
+tree.insert(4)
+tree.insert(5)
+tree.insert(2)
+tree.insert(3)
+
+# pre should print out: 4 2 3 5
+tree.pre_order()
+print('\n')
+# in should print out: 2 3 4 5
+tree.in_order()
+print('\n')
+# post should print out: 3 2 5 4
+tree.post_order()
+print('\n')

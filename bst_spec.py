@@ -73,7 +73,6 @@ class TestBSTClass(unittest.TestCase):
 
         self.assertEqual(self.large_tree.height(), 4)
 
-    
 
 if __name__ == '__main__':
     unittest.main()
