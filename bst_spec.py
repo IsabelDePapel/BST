@@ -1,12 +1,14 @@
 import unittest
-import bst
+import node
+import bst_recur as rbst
+import bst_iter as ibst
 
 
 class TestNodeClass(unittest.TestCase):
     """Test basic node class functionality."""
 
     def setUp(self):
-        self.node = bst.Node(3)
+        self.node = node.Node(3)
 
     def test_value(self):
         self.assertEqual(self.node.value, 3)
@@ -16,7 +18,7 @@ class TestNodeClass(unittest.TestCase):
 
     def test_set_left(self):
         left_val = 2
-        new_node = bst.Node(left_val)
+        new_node = node.Node(left_val)
         self.node.left = new_node
         self.assertEqual(self.node.left, new_node)
 
@@ -25,26 +27,26 @@ class TestNodeClass(unittest.TestCase):
 
     def test_set_right(self):
         right_val = 4
-        new_node = bst.Node(right_val)
+        new_node = node.Node(right_val)
         self.node.right = new_node
         self.assertEqual(self.node.right, new_node)
 
 
-class TestBSTClass(unittest.TestCase):
+class TestRecursiveBSTClass(unittest.TestCase):
     """Test basic BST class functionality."""
 
     def setUp(self):
-        self.empty_tree = bst.BST()
+        self.empty_tree = rbst.RecursiveBST()
 
-        self.small_tree = bst.BST()
+        self.small_tree = rbst.RecursiveBST()
         self.small_tree.insert(4)
 
-        self.medium_tree = bst.BST()
+        self.medium_tree = rbst.RecursiveBST()
         self.medium_tree.insert(4)
         self.medium_tree.insert(3)
         self.medium_tree.insert(5)
 
-        self.large_tree = bst.BST()
+        self.large_tree = rbst.RecursiveBST()
         self.large_tree.insert(4)
         self.large_tree.insert(5)
         self.large_tree.insert(6)
