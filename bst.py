@@ -1,22 +1,22 @@
-"""Abstract interface for a binary search tree."""
+"""Abstract class for a binary search tree."""
 
-from node import Node
 
 class BST:
     """Basic Binary Search Tree."""
 
+    # TODO prevent BST from being instantiated
     def __init__(self):
         self._root = None
 
     @property
     def root(self):
         """Return the root of the tree."""
-        return self._root
+        raise NotImplementedError
 
     @root.setter
     def root(self, node):
         """Set the root of the tree."""
-        self._root = node
+        raise NotImplementedError
 
     def search(self, value):
         """ Find given element in a BST."""

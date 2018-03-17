@@ -1,4 +1,5 @@
-"""Node class for use in BST classes, both recursive and iterative."""
+"""Node class for use in BST abstract class."""
+
 
 class Node:
     """Basic node class with left and right children."""

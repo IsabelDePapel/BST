@@ -1,7 +1,8 @@
-"""Implement Binary Search Tree using recursive class methods."""
+"""Implement Binary Search Tree abstract class using recursive methods."""
 
-from node import Node
+import node
 from bst import BST
+
 
 class RecursiveBST(BST):
     """Recursive Binary Search Tree."""
@@ -12,7 +13,6 @@ class RecursiveBST(BST):
 
         Uses wrapper to avoid having to specify root when calling the function.
         """
-
         return self.__search_wrapper(self._root, value)
 
     def __search_wrapper(self, root, value):
@@ -37,7 +37,7 @@ class RecursiveBST(BST):
         Uses wrapper to avoid having to specify root when calling the function.
         """
         if self._root is None:
-            self._root = Node(value)
+            self._root = node.Node(value)
             return None
 
         return self.__insert_wrapper(self._root, value)
@@ -47,12 +47,12 @@ class RecursiveBST(BST):
         # search tree, and insert in L or R subtree
         if value <= root.value:
             if root.left is None:  # if leaf is empty
-                root.left = Node(value)
+                root.left = node.Node(value)
                 return None
             return self.__insert_wrapper(root.left, value)
 
         if root.right is None:
-            root.right = Node(value)
+            root.right = node.Node(value)
             return None
         return self.__insert_wrapper(root.right, value)
 
